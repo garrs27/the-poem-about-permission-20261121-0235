@@ -28,6 +28,10 @@ POEM = (
     "and what I lift, I lift in your name.\n"
 )
 
+# The competition gate: 1-280 Unicode code points, UTF-8, not only whitespace.
+# Fail fast here instead of shipping an entry the grader would reject.
+assert 1 <= len(POEM) <= 280 and POEM.strip(), "poem violates the entry gate"
+
 
 def destination():
     folder = os.environ.get("MAKEFUN_OUTPUT_DIR", "/output")
